@@ -1,25 +1,26 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const generateShareLink = async (
   linkToEncode: string,
   socialTitle: string,
-  socialDesc: string
+  socialDesc: string,
 ) => {
-  const url = process.env.FIREBASE_DYNAMICLINK + process.env.WEBAPIKEY;
-  const headers = { "Content-Type": "application/json" };
+  const url = process.env.FIREBASE_DYNAMICLINK! + process.env.WEBAPIKEY!;
+  console.log('er', process.env.FIREBASE_DYNAMICLINK!);
+  const headers = { 'Content-Type': 'application/json' };
   const request = {
     dynamicLinkInfo: {
-      domainUriPrefix: process.env.DOMAIN_URI_PREFIX,
+      domainUriPrefix: process.env.DOMAIN_URI_PREFIX!,
       link: linkToEncode,
       socialMetaTagInfo: {
-        socialTitle: socialTitle ?? "",
-        socialDescription: socialDesc ?? "",
+        socialTitle: socialTitle ?? '',
+        socialDescription: socialDesc ?? '',
       },
       androidInfo: {
-        androidPackageName: process.env.ANDROID_BUNDLE,
+        androidPackageName: process.env.ANDROID_BUNDLE!,
       },
       iosInfo: {
-        iosBundleId: process.env.IOS_BUNDLE,
+        iosBundleId: process.env.IOS_BUNDLE!,
         //   iosAppStoreId: `${this.configService.get('IOS_APPSTORE_ID')}`,
       },
     },
