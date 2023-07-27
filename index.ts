@@ -6,7 +6,6 @@ export const generateShareLink = async (
   socialDesc: string,
 ) => {
   const url = process.env.FIREBASE_DYNAMICLINK! + process.env.WEBAPIKEY!;
-  console.log('er', process.env.FIREBASE_DYNAMICLINK!);
   const headers = { 'Content-Type': 'application/json' };
   const request = {
     dynamicLinkInfo: {
